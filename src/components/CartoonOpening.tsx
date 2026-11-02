@@ -93,6 +93,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
         padding: 'max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom))',
         pointerEvents: isOpening ? 'none' : 'auto',
       }}
+      onClick={handleOpen}
       role="dialog"
       aria-modal="true"
       aria-label="Wedding Invitation Opening"
@@ -103,7 +104,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
           aria-hidden="true"
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-          style={{ position: 'absolute', top: '6%', right: '8%', width: 84, height: 84, fontSize: 64, lineHeight: 1 }}
+          style={{ position: 'absolute', top: '6%', right: '8%', width: 84, height: 84, fontSize: 64, lineHeight: 1, zIndex: 2 }}
         >
           ☀️
         </motion.div>
@@ -111,7 +112,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
 
       {/* Drifting cartoon clouds */}
       {!motionOff && (
-        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', zIndex: 2 }}>
           {[
             { top: '10%', left: '6%', size: 56, dur: 26 },
             { top: '18%', left: '62%', size: 44, dur: 32 },
@@ -138,7 +139,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
         style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '50%',
           background: 'linear-gradient(180deg, #E8A0B4, #D67A95)',
-          borderRight: '6px solid #542637', borderRadius: '0 24px 24px 0', zIndex: 3,
+          borderRight: '6px solid #542637', borderRadius: '0 24px 24px 0', zIndex: 1, pointerEvents: 'none',
         }}
       />
       <motion.div
@@ -149,7 +150,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
         style={{
           position: 'absolute', right: 0, top: 0, bottom: 0, width: '50%',
           background: 'linear-gradient(180deg, #E8A0B4, #D67A95)',
-          borderLeft: '6px solid #542637', borderRadius: '24px 0 0 24px', zIndex: 3,
+          borderLeft: '6px solid #542637', borderRadius: '24px 0 0 24px', zIndex: 1, pointerEvents: 'none',
         }}
       />
 
@@ -227,7 +228,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
       </motion.div>
 
       {/* Cartoon ground */}
-      <div aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 90, background: '#BFE3B0', borderTop: '5px solid #7CB87A', borderRadius: '50% 50% 0 0 / 40px 40px 0 0', zIndex: 1 }} />
+      <div aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: 90, background: '#BFE3B0', borderTop: '5px solid #7CB87A', borderRadius: '50% 50% 0 0 / 40px 40px 0 0', zIndex: 2 }} />
     </motion.div>
   );
 };
