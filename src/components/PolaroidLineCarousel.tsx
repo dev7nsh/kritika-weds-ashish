@@ -322,6 +322,23 @@ export default function PolaroidLineCarousel({
       const d = drag.current;
       let lineVel: number;
 
+      // Continuous autoplay: advance the target smoothly every frame, so the
+      // slider glides non-stop instead of jumping one card every few seconds.
+      // autoplay is still ms per card (4500 = one card-width every 4.5s), but
+      // the motion itself is continuous. It pauses only while dragging, for
+      // 3s after a manual swipe/button press, when the tab is hidden, or for
+      // reduced-motion users — hovering alone no longer stops it.
+      if (
+        autoplay &&
+        n >= 2 &&
+        !reduce &&
+        !document.hidden &&
+        !d &&
+        performance.now() - lastTouch.current > 3000
+      ) {
+        sim.current.target += (spacing / (autoplay / 1000)) * dt;
+      }
+
       if (d && d.moved) {
         lineVel = d.v * 1000;
       } else {
@@ -406,19 +423,10 @@ export default function PolaroidLineCarousel({
       cancelAnimationFrame(raf);
       io.disconnect();
     };
-  }, [size, spacing, totalItems, totalSpan, n]);
+  }, [size, spacing, totalItems, totalSpan, n, autoplay]);
 
-  // Infinite Autoplay timer
-  React.useEffect(() => {
-    if (!autoplay || n < 2) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const t = window.setInterval(() => {
-      if (document.hidden || paused.current || drag.current || performance.now() - lastTouch.current < autoplay) return;
-      const currentStep = Math.round(sim.current.target / spacing);
-      sim.current.target = (currentStep + 1) * spacing;
-    }, autoplay);
-    return () => window.clearInterval(t);
-  }, [autoplay, n, spacing]);
+  // Continuous autoplay is driven inside the frame loop above;
+  // the old step-every-interval timer is intentionally removed.
 
   const onDown = (e: React.PointerEvent) => {
     lastTouch.current = performance.now();
