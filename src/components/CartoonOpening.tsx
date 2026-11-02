@@ -139,7 +139,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
         style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '50%',
           background: 'linear-gradient(180deg, #E8A0B4, #D67A95)',
-          borderRight: '6px solid #542637', borderRadius: '0 24px 24px 0', zIndex: 1, pointerEvents: 'none',
+          borderRadius: '0 24px 24px 0', zIndex: 1, pointerEvents: 'none',
         }}
       />
       <motion.div
@@ -150,7 +150,7 @@ export const CartoonOpening: React.FC<CartoonOpeningProps> = ({ onUnlock, onComp
         style={{
           position: 'absolute', right: 0, top: 0, bottom: 0, width: '50%',
           background: 'linear-gradient(180deg, #E8A0B4, #D67A95)',
-          borderLeft: '6px solid #542637', borderRadius: '24px 0 0 24px', zIndex: 1, pointerEvents: 'none',
+          borderRadius: '24px 0 0 24px', zIndex: 1, pointerEvents: 'none',
         }}
       />
 
