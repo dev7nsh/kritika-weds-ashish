@@ -359,7 +359,7 @@ export const Hero: React.FC<HeroProps> = ({ revealed = true }) => {
                   color: 'var(--text-primary)',
                 }}
               >
-                20 NOVEMBER 2026
+                25 NOVEMBER 2026
               </span>
               <span
                 style={{
@@ -371,7 +371,7 @@ export const Hero: React.FC<HeroProps> = ({ revealed = true }) => {
                   fontWeight: 600,
                 }}
               >
-                MAU, UTTAR PRADESH
+                JAIPUR, RAJASTHAN
               </span>
             </motion.div>
           </div>

@@ -295,7 +295,7 @@ export const Celebrations: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Baraat Departure Announcement Card (20 November Wedding Only) */}
+                    {/* Baraat Departure Announcement Card (25 November Wedding Only) */}
                     {ceremony.baraatAnnouncement && (
                       <div
                         style={{

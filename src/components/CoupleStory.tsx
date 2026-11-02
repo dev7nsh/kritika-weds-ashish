@@ -304,7 +304,7 @@ export const CoupleStory: React.FC = () => {
                   fontStyle: 'italic',
                 }}
               >
-                18th — 21st November 2026
+                Wedding Week • November 2026
               </span>
             </div>
           </motion.div>

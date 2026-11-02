@@ -97,7 +97,7 @@ export const ClosingSection: React.FC = () => {
             ॥ सदा सुमंगलम् भवतु ॥
           </p>
 
-          {/* Couple Closing Typography: VIKASH ♡ JYOTI */}
+          {/* Couple Closing Typography: KRITIKA ♡ ASHISH */}
           <h2
             style={{
               fontFamily: 'var(--font-serif)',

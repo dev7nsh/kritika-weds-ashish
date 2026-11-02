@@ -73,7 +73,7 @@ export const RSVPSection: React.FC = () => {
 
   // Wishes Form State (Explicitly saved in browser localStorage)
   const [wishes, setWishes] = useState<GuestWish[]>(() => {
-    const saved = localStorage.getItem('vikash_jyoti_wishes');
+    const saved = localStorage.getItem('kritika_ashish_wishes');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -90,7 +90,7 @@ export const RSVPSection: React.FC = () => {
   const [likedWishIds, setLikedWishIds] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    localStorage.setItem('vikash_jyoti_wishes', JSON.stringify(wishes));
+    localStorage.setItem('kritika_ashish_wishes', JSON.stringify(wishes));
   }, [wishes]);
 
   const triggerCelebrationConfetti = () => {
@@ -124,9 +124,9 @@ export const RSVPSection: React.FC = () => {
       submittedAt: new Date().toISOString(),
     };
 
-    const existingRsvps = JSON.parse(localStorage.getItem('vikash_jyoti_rsvps') || '[]');
+    const existingRsvps = JSON.parse(localStorage.getItem('kritika_ashish_rsvps') || '[]');
     existingRsvps.push(rsvpRecord);
-    localStorage.setItem('vikash_jyoti_rsvps', JSON.stringify(existingRsvps));
+    localStorage.setItem('kritika_ashish_rsvps', JSON.stringify(existingRsvps));
 
     setRsvpSubmitted(true);
     triggerCelebrationConfetti();
