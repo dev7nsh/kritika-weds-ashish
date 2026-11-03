@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useState } from 'react';
 import { MotionConfig } from 'framer-motion';
-import { CartoonOpening } from './components/CartoonOpening';
+import { CurtainOpening } from './components/CurtainOpening';
 import { ScrollProgress } from './components/ScrollProgress';
 import { PetalBackground } from './components/PetalBackground';
 import { AudioPlayer } from './components/AudioPlayer';
@@ -28,9 +28,9 @@ export const App: React.FC = () => {
   return (
     <MotionConfig reducedMotion="user">
     <div className="wedding-experience" style={{ position: 'relative', minHeight: '100vh' }}>
-      {/* 0. Cartoon opening screen (Appears on every initial visit / refresh) — envelope card removed */}
+      {/* 0. Curtain video opening (Appears on every initial visit / refresh) — cartoon scene removed */}
       {!isIntroDone && (
-        <CartoonOpening onUnlock={() => setIsUnlocked(true)} onComplete={() => setIsIntroDone(true)} />
+        <CurtainOpening onUnlock={() => setIsUnlocked(true)} onComplete={() => setIsIntroDone(true)} />
       )}
 
       {/* Subtle Paper Texture Overlay */}
