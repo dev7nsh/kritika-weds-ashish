@@ -120,6 +120,7 @@ export const PetalBackground: React.FC = () => {
 
   return (
     <canvas
+      className="petal-canvas"
       ref={canvasRef}
       style={{
         position: 'fixed',

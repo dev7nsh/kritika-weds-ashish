@@ -788,3 +788,125 @@ p {
   }
 }
 
+
+/* ==========================================================================
+   PHONE FRAME ON DESKTOP — desktop shows the same narrow mobile layout
+   (max-width 430px, centred, dark sides), not a wide desktop layout.
+   ========================================================================== */
+@media (min-width: 769px) {
+  html, body {
+    background-color: #1F0A13 !important;
+  }
+  .wedding-experience {
+    max-width: 430px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color: var(--bg-warm-ivory) !important;
+    box-shadow: 0 0 0 1px rgba(196, 163, 106, 0.35), 0 0 90px rgba(0, 0, 0, 0.55) !important;
+    overflow-x: hidden !important;
+  }
+  .container {
+    max-width: 430px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  /* Mobile-like spacing and type (viewport vw units would otherwise grow on desktop) */
+  section {
+    padding-top: 48px !important;
+    padding-bottom: 52px !important;
+  }
+  #hero {
+    min-height: auto !important;
+    padding-top: 85px !important;
+    padding-bottom: 28px !important;
+  }
+  #hero h1 {
+    font-size: 2.6rem !important;
+    line-height: 1.12 !important;
+  }
+  #hero h1 .hero-heart {
+    font-size: 1.35rem !important;
+  }
+  #countdown-section h2 {
+    font-size: 2rem !important;
+  }
+  /* Stacked layouts, exactly as on mobile */
+  .story-editorial-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    width: 100% !important;
+  }
+  .story-col-left, .story-col-center, .story-col-right {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: auto !important;
+  }
+  .story-col-left { max-width: 100% !important; margin: 0 auto !important; }
+  .story-col-right { max-width: 100% !important; margin: 0 auto !important; }
+  .ceremony-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+  .ceremony-img-col, .ceremony-text-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: auto !important;
+  }
+  .venue-composition {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 22px !important;
+    width: 100% !important;
+  }
+  .venue-info-box, .venue-map-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    grid-column: auto !important;
+  }
+  .timeline-central-line { left: 20px !important; }
+  .timeline-row { grid-template-columns: 40px 1fr !important; }
+  .timeline-node-col { order: 1 !important; justify-content: flex-start !important; }
+  .timeline-content-col { order: 2 !important; padding-left: 14px !important; padding-right: 0 !important; }
+  .timeline-empty-col { display: none !important; }
+  .rsvp-modal-content { max-width: 390px !important; }
+  /* Fixed chrome centred inside the 430px phone column */
+  .main-nav {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 430px !important;
+    max-width: 430px !important;
+  }
+  .scroll-progress-bar {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 430px !important;
+  }
+  .petal-canvas {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 430px !important;
+    height: 100vh !important;
+  }
+  .audio-player-float {
+    left: 50% !important;
+    transform: translateX(calc(-215px + 24px)) !important;
+  }
+  .mobile-menu-drawer {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 430px !important;
+  }
+  .paper-texture-overlay {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 430px !important;
+    right: auto !important;
+  }
+}

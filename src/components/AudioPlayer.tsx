@@ -85,6 +85,7 @@ export const AudioPlayer: React.FC = () => {
 
   return (
     <div
+      className="audio-player-float"
       style={{
         position: 'fixed',
         bottom: '24px',

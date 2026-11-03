@@ -39,6 +39,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <nav
+        className="main-nav"
         style={{
           position: 'fixed',
           top: 0,
@@ -161,6 +162,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div
+          className="mobile-menu-drawer"
           style={{
             position: 'fixed',
             inset: 0,
@@ -230,14 +232,7 @@ export const Navbar: React.FC = () => {
       )}
 
       <style>{`
-        @media (min-width: 900px) {
-          .desktop-nav-menu {
-            display: flex !important;
-          }
-          .mobile-nav-toggle {
-            display: none !important;
-          }
-        }
+        /* Phone-frame: desktop shows the same hamburger menu as mobile */
         .nav-link:hover {
           color: var(--accent-gold) !important;
         }
