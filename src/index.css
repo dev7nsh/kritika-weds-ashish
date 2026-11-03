@@ -910,3 +910,14 @@ p {
     right: auto !important;
   }
 }
+
+/* Curtain video is confined to the mobile-screen column on desktop, not full screen */
+@media (min-width: 769px) {
+  .curtain-opening {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: 430px !important;
+    max-width: 430px !important;
+  }
+}

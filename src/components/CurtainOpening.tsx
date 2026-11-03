@@ -99,6 +99,7 @@ export const CurtainOpening: React.FC<CurtainOpeningProps> = ({ onUnlock, onComp
 
   return (
     <motion.div
+      className="curtain-opening"
       initial={{ opacity: 1 }}
       animate={{ opacity: isFading ? 0 : 1 }}
       transition={{ duration: prefersReducedMotion ? 0.3 : FADE_FOR, ease: [0.22, 1, 0.36, 1] }}
