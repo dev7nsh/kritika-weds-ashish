@@ -99,12 +99,14 @@ export interface WeddingConfig {
     displayWhatsAppPhone?: string;
     prefilledMessage: string;
   };
+  footerWhatsAppPhone?: string;
+  footerDisplayWhatsAppPhone?: string;
   closingQuote: string;
   hindiClosing: string;
   closingFamilyNote: string;
 }
 
-export const weddingData: WeddingConfig = {
+const realWeddingData: WeddingConfig = {
   groomName: "Ashish",
   brideName: "Kritika",
   coupleInitials: "K & A",
@@ -241,10 +243,73 @@ export const weddingData: WeddingConfig = {
     displayWhatsAppPhone: "+91 91666 52239",
     prefilledMessage: "Namaste! Main Kritika aur Ashish ki shaadi — 25 Nov 2026, Jaipur — ke invitation ke sambandh mein sampark kar raha/rahi hoon.",
   },
+  footerWhatsAppPhone: "918279050569",
+  footerDisplayWhatsAppPhone: "+91 82790 50569",
   closingQuote: "Together, always and forever.",
   hindiClosing: "आपका स्नेह और आशीर्वाद हमारे लिए अनमोल है।",
   closingFamilyNote: "With love, blessings, and warm regards from the Chouhan Parivar.",
 };
+
+
+// --- Routes ---------------------------------------------------------------
+// Main route (/) shows DEMO data with a demo mobile number.
+// The real Kritika-Ashish copy lives only on /kritika-ashish (and /real).
+// Components all import `weddingData`, so this single switch moves the
+// whole site between demo and real without touching any component.
+function isRealRoute(): boolean {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname.replace(/\/$/, '');
+  return path === '/kritika-ashish' || path === '/real' || path.startsWith('/kritika-ashish/') || path.startsWith('/real/');
+}
+
+const demoWeddingData: WeddingConfig = {
+  ...realWeddingData,
+  groomName: "Demo Groom",
+  brideName: "Demo Bride",
+  coupleInitials: "D & D",
+  monogram: "D \u2724 D",
+  eyebrow: "DEMO PARIVAR KA SNEHPOORN NIMANTRAN",
+  subtitle: "Two families, one beautiful beginning — in Demo City.",
+  hindiSubtitle: "डेमो परिवार का स्नेहपूर्ण निमंत्रण।",
+  divineBlessingText: "With the blessings of our loved ones.",
+  venue: {
+    ...realWeddingData.venue,
+    name: "DEMO MARRIAGE GARDEN",
+    description: "Marriage Garden \u2022 Demo City",
+    addressHindi: "डेमो नगर, डेमो रोड, डेमो सिटी",
+    addressEnglish: "Demo Nagar, Demo Road, Demo City, India",
+    city: "Demo City",
+    mapQuery: "Demo Marriage Garden Demo City",
+    mapEmbedUrl: "https://maps.google.com/maps?q=Demo+Marriage+Garden+Demo+City&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    directionsUrl: "https://www.google.com/maps/search/?api=1&query=Demo+Marriage+Garden+Demo+City",
+    contacts: [
+      { role: "Demo Parivar", name: "Demo Parivar", phone: "9999999999", formattedPhone: "+91 99999 99999" },
+    ],
+  },
+  familyContacts: ["9999999999"],
+  cityLocation: "Demo City",
+  story: {
+    ...realWeddingData.story,
+    welcomeMessage: "Demo Parivar invites you to the wedding of Demo Bride with Demo Groom.",
+  },
+  ceremonies: realWeddingData.ceremonies.map((c) => ({
+    ...c,
+    venueName: "Demo City",
+    venueAddress: "Demo Parivar, Demo City",
+    directionsUrl: "https://www.google.com/maps/search/?api=1&query=Demo+Marriage+Garden+Demo+City",
+  })),
+  rsvp: {
+    ...realWeddingData.rsvp,
+    coupleWhatsAppPhone: "919999999999",
+    displayWhatsAppPhone: "+91 99999 99999",
+    prefilledMessage: "Namaste! Main Demo Bride aur Demo Groom ki shaadi ke invitation ke sambandh mein sampark kar raha/rahi hoon.",
+  },
+  footerWhatsAppPhone: "919999999999",
+  footerDisplayWhatsAppPhone: "+91 99999 99999",
+  closingFamilyNote: "With love, blessings, and warm regards from the Demo Parivar.",
+};
+
+export const weddingData: WeddingConfig = isRealRoute() ? realWeddingData : demoWeddingData;
 
 export function getWeekdayName(dateStr: string): string {
   const d = new Date(`${dateStr}T12:00:00Z`);

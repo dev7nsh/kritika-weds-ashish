@@ -1,1 +1,1 @@
-{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"npm run build","framework":"vite","outputDirectory":"dist"}
+{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"npm run build","framework":"vite","outputDirectory":"dist","rewrites":[{"source":"/(.*)","destination":"/index.html"}]}

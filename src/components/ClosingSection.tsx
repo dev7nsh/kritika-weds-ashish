@@ -207,7 +207,7 @@ export const ClosingSection: React.FC = () => {
             }}
           >
             <a
-              href="https://wa.me/918279050569"
+              href={`https://wa.me/${weddingData.footerWhatsAppPhone ?? weddingData.rsvp.coupleWhatsAppPhone ?? "918279050569"}`} 
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -218,7 +218,7 @@ export const ClosingSection: React.FC = () => {
                 textDecoration: 'none',
               }}
             >
-              WhatsApp: +91 82790 50569
+              WhatsApp: {weddingData.footerDisplayWhatsAppPhone ?? weddingData.rsvp.displayWhatsAppPhone ?? '+91 82790 50569'}
             </a>
           </div>
         </motion.div>
