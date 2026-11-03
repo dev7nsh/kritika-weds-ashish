@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, Camera } from 'lucide-react';
 import PolaroidLineCarousel, { type Slide } from './PolaroidLineCarousel';
 import { SectionDecor } from './decor/SectionDecor';
+import { isRealRoute } from '../data/weddingData';
 
 // Display copies are 760px WebP derivatives of the originals in /images/Image Carousel/
 // (~1 MB total instead of ~11 MB); the originals are kept unchanged.
@@ -42,6 +43,15 @@ const MOMENT_SLIDES: Slide[] = [
     alt: 'Kritika and Ashish joyous celebration',
     objectPosition: 'center 8%',
   },
+];
+
+
+const DEMO_MOMENT_SLIDES: Slide[] = [
+  { image: '/images/demo/demo-wedding-couple.jpg', title: 'Cherished Smiles', caption: 'A gentle smile that started a beautiful lifetime journey.', alt: 'Demo couple smiling together', objectPosition: 'center 12%' },
+  { image: '/images/demo/demo-varmala.jpg', title: 'Hand in Hand', caption: 'Stepping forward with love, trust, and shared dreams.', alt: 'Demo couple exchanging garlands', objectPosition: 'center 15%' },
+  { image: '/images/demo/demo-haldi.jpg', title: 'Golden Radiance', caption: 'Two souls reflecting each other’s light and laughter.', alt: 'Demo haldi ceremony', objectPosition: 'center 10%' },
+  { image: '/images/demo/demo-mehendi.jpg', title: 'Timeless Grace', caption: 'Moments frozen in time, filled with warmth and quiet joy.', alt: 'Demo mehendi hands', objectPosition: 'center 8%' },
+  { image: '/images/demo/demo-wedding-couple.jpg', title: 'Endless Togetherness', caption: 'Blessed by elders, cheered by loved ones, destined forever.', alt: 'Demo couple celebration', objectPosition: 'center 8%' },
 ];
 
 export const OurMoments: React.FC = () => {
@@ -168,7 +178,7 @@ export const OurMoments: React.FC = () => {
       {/* Polaroid Hanging Line Carousel */}
       <div style={{ position: 'relative', width: '100%' }}>
         <PolaroidLineCarousel
-          slides={MOMENT_SLIDES}
+          slides={isRealRoute() ? MOMENT_SLIDES : DEMO_MOMENT_SLIDES}
           stageHeight="clamp(400px, 52vh, 500px)"
           cardWidth={250}
           sag={32}
@@ -177,7 +187,7 @@ export const OurMoments: React.FC = () => {
           string="#C4A36A"
           background="transparent"
           ink="var(--text-primary)"
-          ariaLabel="Kritika and Ashish wedding photo gallery"
+          ariaLabel={isRealRoute() ? "Kritika and Ashish wedding photo gallery" : "Demo wedding photo gallery"}
         />
       </div>
     </section>

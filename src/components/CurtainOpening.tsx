@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { isRealRoute } from '../data/weddingData';
 import { motion } from 'framer-motion';
 
 interface CurtainOpeningProps {
@@ -42,7 +43,7 @@ export const CurtainOpening: React.FC<CurtainOpeningProps> = ({ onUnlock, onComp
   useEffect(() => {
     const img = new Image();
     img.decoding = 'async';
-    img.src = '/images/hero.jpg';
+    img.src = isRealRoute() ? '/images/hero.jpg' : '/images/demo/demo-wedding-couple.jpg';
   }, []);
 
   const schedule = (fn: () => void, seconds: number) => {

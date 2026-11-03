@@ -256,7 +256,7 @@ const realWeddingData: WeddingConfig = {
 // The real Kritika-Ashish copy lives only on /kritika-ashish (and /real).
 // Components all import `weddingData`, so this single switch moves the
 // whole site between demo and real without touching any component.
-function isRealRoute(): boolean {
+export function isRealRoute(): boolean {
   if (typeof window === 'undefined') return false;
   const path = window.location.pathname.replace(/\/$/, '');
   return path === '/kritika-ashish' || path === '/real' || path.startsWith('/kritika-ashish/') || path.startsWith('/real/');
@@ -291,12 +291,19 @@ const demoWeddingData: WeddingConfig = {
   story: {
     ...realWeddingData.story,
     welcomeMessage: "Demo Parivar invites you to the wedding of Demo Bride with Demo Groom.",
+    images: { hands: "/images/demo/demo-wedding-couple.jpg", varmala: "/images/demo/demo-varmala.jpg" },
   },
   ceremonies: realWeddingData.ceremonies.map((c) => ({
     ...c,
     venueName: "Demo City",
     venueAddress: "Demo Parivar, Demo City",
     directionsUrl: "https://www.google.com/maps/search/?api=1&query=Demo+Marriage+Garden+Demo+City",
+    image:
+      c.id === "haldi" ? "/images/demo/demo-haldi.jpg"
+      : c.id === "mehendi" ? "/images/demo/demo-mehendi.jpg"
+      : c.id === "wedding" ? "/images/demo/demo-wedding-couple.jpg"
+      : c.id === "vidai" ? "/images/demo/demo-varmala.jpg"
+      : c.image,
   })),
   rsvp: {
     ...realWeddingData.rsvp,

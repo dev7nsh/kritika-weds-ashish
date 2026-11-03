@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useMotionValue, useScroll, useSpring, useTransform, type Variants } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { weddingData } from '../data/weddingData';
+import { weddingData, isRealRoute } from '../data/weddingData';
 import { SectionDecor } from './decor/SectionDecor';
 
 interface HeroProps {
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ revealed = true }) => {
       >
         <motion.div style={{ position: 'absolute', inset: 0, x: bgShiftX, y: bgShiftY }}>
           <motion.img
-            src="/images/hero.jpg"
+            src={isRealRoute() ? "/images/hero.jpg" : "/images/demo/demo-wedding-couple.jpg"}
             alt=""
             aria-hidden="true"
             decoding="async"
