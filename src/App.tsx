@@ -11,7 +11,6 @@ import { Countdown } from './components/Countdown';
 // Below-the-fold scenes load as separate chunks right after first paint,
 // keeping the envelope + hero bundle small. They start downloading immediately,
 // so in-page navigation targets exist long before a visitor can reach them.
-const GaneshBlessing = lazy(() => import('./components/GaneshBlessing').then((m) => ({ default: m.GaneshBlessing })));
 const CoupleStory = lazy(() => import('./components/CoupleStory').then((m) => ({ default: m.CoupleStory })));
 const OurMoments = lazy(() => import('./components/OurMoments').then((m) => ({ default: m.OurMoments })));
 const DivineBlessings = lazy(() => import('./components/DivineBlessings').then((m) => ({ default: m.DivineBlessings })));
@@ -56,9 +55,6 @@ export const App: React.FC = () => {
         <Countdown />
 
         <Suspense fallback={<div style={{ minHeight: '100vh' }} aria-hidden="true" />}>
-        {/* 3. Auspicious Ganesh Blessing Invocation */}
-        <GaneshBlessing />
-
         {/* 4. The Couple Story (The Beginning of Forever) */}
         <CoupleStory />
 

@@ -194,7 +194,7 @@ export const ClosingSection: React.FC = () => {
             {weddingData.venue.name} · {weddingData.cityLocation} · {weddingData.formattedWeddingDate}
           </p>
 
-          {/* Footer Credit */}
+          {/* WhatsApp contact */}
           <div
             style={{
               marginTop: '40px',
@@ -206,34 +206,19 @@ export const ClosingSection: React.FC = () => {
               gap: '6px',
             }}
           >
-            <p
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontSize: '0.70rem',
-                letterSpacing: '0.12em',
-                color: 'var(--text-muted)',
-                opacity: 0.7,
-              }}
-            >
-              Created with ♥ by DeadCode Labs
-            </p>
             <a
-              href="https://deadcode.space"
+              href="https://wa.me/918279050569"
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontSize: '0.68rem',
-                letterSpacing: '0.14em',
-                color: 'var(--accent-gold)',
-                opacity: 0.65,
+                fontSize: '0.78rem',
+                letterSpacing: '0.12em',
+                color: 'var(--text-primary)',
                 textDecoration: 'none',
-                transition: 'opacity 0.25s ease',
               }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '0.65')}
             >
-              ↗ deadcode.space
+              WhatsApp: +91 82790 50569
             </a>
           </div>
         </motion.div>
