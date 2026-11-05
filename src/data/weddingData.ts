@@ -316,7 +316,72 @@ const demoWeddingData: WeddingConfig = {
   closingFamilyNote: "With love, blessings, and warm regards from the Demo Parivar.",
 };
 
-export const weddingData: WeddingConfig = isRealRoute() ? realWeddingData : demoWeddingData;
+export function isAshishRoute(): boolean {
+  if (typeof window === 'undefined') return false;
+  const path = window.location.pathname.replace(/\/$/, '');
+  return path === '/ashish' || path.startsWith('/ashish/');
+}
+
+// Ashish (Modi Parivar) card — same wedding, groom's side.
+// Source: the printed Modi Parivar invitation card (front, inside, Barat).
+// Differences from the Chouhan (Kritika) card, all from that card:
+// - Hosts: Modi Parivar (Lallu Lal ji, Tikam Chand ji, Sardar ji Modi),
+//   1-C-114, Modi Sadan, Lalita Colony, Shastri Nagar, Jaipur.
+// - Haldi-Mehendi: Sat 23 Nov 2026, 2:00 PM (the Kritika card gives no
+//   Haldi/Mehendi date, so this date is used on this route only).
+// - 25 Nov: Nikasi 3:00 PM, Barat departs 5:00 PM from Pani ki Tanki,
+//   via Shri Rajendra ji Chouhan's place, to P.S. Baag; Swagat 7:00 PM.
+// - 16 Nov Ganesh Nimantran 5:00 AM and 17 Nov Chak Poojan 9:00 AM /
+//   Bhaat 11:00 AM / Sagai 2:00 PM / Aashirwad 6:00 PM at Rangmahal
+//   Marriage Garden are on the card but are not ceremony cards on
+//   this site (it only shows Haldi / Mehendi / Wedding / Vidai).
+const ashishWeddingData: WeddingConfig = {
+  ...realWeddingData,
+  coupleInitials: "A & K",
+  monogram: "A \u2724 K",
+  eyebrow: "MODI PARIVAR KA SNEHPOORN NIMANTRAN",
+  hindiSubtitle: "मोदी परिवार का स्नेहपूर्ण निमंत्रण।",
+  divineBlessingText: "परमपिता परमेश्वर की असीम अनुकम्पा से।",
+  venue: {
+    ...realWeddingData.venue,
+    contacts: [
+      { role: "Modi Parivar", name: "Lallu Lal ji Modi", phone: "9261773916", formattedPhone: "+91 92617 73916" },
+      { role: "Modi Parivar", name: "Tikam Chand ji Modi", phone: "7733047566", formattedPhone: "+91 77330 47566" },
+      { role: "Modi Parivar", name: "Sardar ji Modi", phone: "7877846572", formattedPhone: "+91 78778 46572" },
+      { role: "Modi Parivar", name: "Modi Parivar", phone: "9680118258", formattedPhone: "+91 96801 18258" },
+    ],
+  },
+  familyContacts: ["9261773916", "7733047566", "7877846572", "9680118258"],
+  story: {
+    ...realWeddingData.story,
+    welcomeMessage: "Sw. Shrimati Chand Devi and Shri Lallu ji Modi, with the Modi Parivar, invite you to the Mangal Parinay of their son Ashish with Kritika.",
+  },
+  ceremonies: realWeddingData.ceremonies.map((c) => {
+    if (c.id === "haldi" || c.id === "mehendi") {
+      return { ...c, dateStr: "2026-11-23", displayDate: "23 November 2026, 2:00 PM", time: "2:00 PM", timeGracefulLabel: "दोपहर 02:00 बजे", venueName: "Jaipur", venueAddress: "Modi Parivar, Jaipur" };
+    }
+    if (c.id === "wedding") {
+      return {
+        ...c,
+        description: "Nikasi at 3:00 PM, Barat departs 5:00 PM from Pani ki Tanki, via Shri Rajendra ji Chouhan's place, to P.S. Baag Marriage Garden — Barat Swagat at 7:00 PM, Pritibhoj from 6:00 PM, and Panigrahan Sanskar at the Shubh Lagna.",
+        baraatAnnouncement: {
+          hindiText: "बारात बुधवार, 25 नवम्बर 2026 को सायं 5 बजे, निवास स्थान पानी की टंकी से रवाना होकर श्रीमान् राजेन्द्र जी चौहान के यहाँ पी.एस. बाग मैरिज गार्डन, 9 दुकान, कालवाड़ रोड, गोकुलपुरा के लिए प्रस्थान करेगी।",
+          englishText: "Barat on Wednesday, 25 November 2026 at 5:00 PM, departing from Pani ki Tanki, via Shri Rajendra ji Chouhan's place, to P.S. Baag Marriage Garden, 9 Dukan, Kalwad Road, Gokulpura.",
+        },
+      };
+    }
+    return c;
+  }),
+  rsvp: {
+    ...realWeddingData.rsvp,
+    coupleWhatsAppPhone: "919261773916",
+    displayWhatsAppPhone: "+91 92617 73916",
+    prefilledMessage: "Namaste! Main Ashish aur Kritika ki shaadi — 25 Nov 2026, Jaipur — ke invitation ke sambandh mein sampark kar raha/rahi hoon.",
+  },
+  closingFamilyNote: "With love, blessings, and warm regards from the Modi Parivar.",
+};
+
+export const weddingData: WeddingConfig = isAshishRoute() ? ashishWeddingData : isRealRoute() ? realWeddingData : demoWeddingData;
 
 export function getWeekdayName(dateStr: string): string {
   const d = new Date(`${dateStr}T12:00:00Z`);
