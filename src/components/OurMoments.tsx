@@ -8,41 +8,12 @@ import { isRealRoute } from '../data/weddingData';
 // Display copies are 760px WebP derivatives of the originals in /images/Image Carousel/
 // (~1 MB total instead of ~11 MB); the originals are kept unchanged.
 const MOMENT_SLIDES: Slide[] = [
-  {
-    image: '/images/Image Carousel/optimized/photo-1.webp',
-    title: 'Cherished Smiles',
-    caption: 'A gentle smile that started a beautiful lifetime journey.',
-    alt: 'Kritika and Ashish smiling together',
-    objectPosition: 'center 12%',
-  },
-  {
-    image: '/images/Image Carousel/optimized/photo-2.webp',
-    title: 'Hand in Hand',
-    caption: 'Stepping forward with love, trust, and shared dreams.',
-    alt: 'Kritika and Ashish holding hands',
-    objectPosition: 'center 15%',
-  },
-  {
-    image: '/images/Image Carousel/optimized/photo-3.webp',
-    title: 'Timeless Grace',
-    caption: 'Moments frozen in time, filled with warmth and quiet joy.',
-    alt: 'Kritika and Ashish candid portrait',
-    objectPosition: 'center 10%',
-  },
-  {
-    image: '/images/Image Carousel/optimized/photo-4.webp',
-    title: 'Golden Radiance',
-    caption: 'Two souls reflecting each other’s light and laughter.',
-    alt: 'Kritika and Ashish golden hour portrait',
-    objectPosition: 'center 8%',
-  },
-  {
-    image: '/images/Image Carousel/optimized/photo-5.webp',
-    title: 'Endless Togetherness',
-    caption: 'Blessed by elders, cheered by loved ones, destined forever.',
-    alt: 'Kritika and Ashish joyous celebration',
-    objectPosition: 'center 8%',
-  },
+  { image: '/images/Image Carousel/optimized/photo-1.webp', title: 'Cherished Smiles', caption: 'A gentle smile that started a beautiful lifetime journey.', alt: 'Kritika and Ashish smiling together by the car', objectPosition: 'center 12%' },
+  { image: '/images/Image Carousel/optimized/photo-2.webp', title: 'Timeless Grace', caption: 'Moments frozen in time, filled with warmth and quiet joy.', alt: 'Kritika and Ashish at the white arches', objectPosition: 'center 10%' },
+  { image: '/images/Image Carousel/optimized/photo-3.webp', title: 'Golden Radiance', caption: 'Two souls reflecting each other’s light and laughter.', alt: 'Kritika and Ashish in traditional attire', objectPosition: 'center 8%' },
+  { image: '/images/Image Carousel/optimized/photo-4.webp', title: 'Hand in Hand', caption: 'Stepping forward with love, trust, and shared dreams.', alt: 'Kritika and Ashish holding hands', objectPosition: 'center 15%' },
+  { image: '/images/Image Carousel/optimized/photo-5.webp', title: 'Endless Togetherness', caption: 'Blessed by elders, cheered by loved ones, destined forever.', alt: 'Kritika and Ashish in the park', objectPosition: 'center 8%' },
+  { image: '/images/Image Carousel/optimized/photo-6.webp', title: 'The Beginning of Forever', caption: 'A quiet moment, just the two of us, before the forever begins.', alt: 'Kritika and Ashish close together at the elephant statues', objectPosition: 'center 8%' },
 ];
 
 
