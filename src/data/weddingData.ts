@@ -347,13 +347,13 @@ const ashishWeddingData: WeddingConfig = {
   venue: {
     ...realWeddingData.venue,
     contacts: [
-      { role: "Modi Parivar", name: "Lallu Lal ji Modi", phone: "9261773916", formattedPhone: "+91 92617 73916" },
-      { role: "Modi Parivar", name: "Tikam Chand ji Modi", phone: "7733047566", formattedPhone: "+91 77330 47566" },
+      { role: "Modi Parivar", name: "Tikam Chand ji Modi", phone: "9261773916", formattedPhone: "+91 92617 73916" },
       { role: "Modi Parivar", name: "Sardar ji Modi", phone: "7877846572", formattedPhone: "+91 78778 46572" },
-      { role: "Modi Parivar", name: "Modi Parivar", phone: "9680118258", formattedPhone: "+91 96801 18258" },
+      { role: "Modi Parivar", name: "Sanjay", phone: "7733047566", formattedPhone: "+91 77330 47566" },
+      { role: "Modi Parivar", name: "Manoj Sahu", phone: "9680118258", formattedPhone: "+91 96801 18258" },
     ],
   },
-  familyContacts: ["9261773916", "7733047566", "7877846572", "9680118258"],
+  familyContacts: ["9261773916", "7877846572", "7733047566", "9680118258"],
   story: {
     ...realWeddingData.story,
     welcomeMessage: "Sw. Shrimati Chand Devi and Shri Lallu ji Modi, with the Modi Parivar, invite you to the Mangal Parinay of their son Ashish with Kritika.",
