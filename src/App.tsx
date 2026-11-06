@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { MotionConfig } from 'framer-motion';
 import { CurtainOpening } from './components/CurtainOpening';
 import { ScrollProgress } from './components/ScrollProgress';
@@ -7,6 +7,7 @@ import { AudioPlayer } from './components/AudioPlayer';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
+import { isAshishRoute } from './data/weddingData';
 
 // Below-the-fold scenes load as separate chunks right after first paint,
 // keeping the envelope + hero bundle small. They start downloading immediately,
@@ -23,6 +24,21 @@ const ClosingSection = lazy(() => import('./components/ClosingSection').then((m)
 export const App: React.FC = () => {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isIntroDone, setIsIntroDone] = useState(false);
+
+  // The /ashish route is the groom's side (Modi Parivar), so its tab title
+  // reads "Ashish weds Kritika". Other routes keep their existing title.
+  useEffect(() => {
+    if (isAshishRoute()) {
+      document.title = 'Ashish weds Kritika — Shubh Vivah | 25 November 2026, Jaipur';
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) {
+        meta.setAttribute(
+          'content',
+          'Ashish weds Kritika — Modi Parivar ka snehpoorn nimantran. Shubh Vivah, 25 November 2026, P.S. Baag Marriage Garden, Jhotwara, Jaipur.'
+        );
+      }
+    }
+  }, []);
 
   return (
     <MotionConfig reducedMotion="user">
