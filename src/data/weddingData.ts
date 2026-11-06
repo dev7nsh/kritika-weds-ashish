@@ -259,7 +259,9 @@ const realWeddingData: WeddingConfig = {
 export function isRealRoute(): boolean {
   if (typeof window === 'undefined') return false;
   const path = window.location.pathname.replace(/\/$/, '');
-  return path === '/kritika-ashish' || path === '/real' || path.startsWith('/kritika-ashish/') || path.startsWith('/real/');
+  // /ashish is a real route too (Modi Parivar card, real couple photos) —
+  // without it, OurMoments / CurtainOpening fall back to demo images there.
+  return path === '/kritika-ashish' || path === '/real' || path === '/ashish' || path.startsWith('/kritika-ashish/') || path.startsWith('/real/') || path.startsWith('/ashish/');
 }
 
 const demoWeddingData: WeddingConfig = {
