@@ -67,7 +67,7 @@ export const Celebrations: React.FC = () => {
               color: 'var(--text-accent)',
             }}
           >
-            "Four cherished milestones celebrating love, tradition, and togetherness."
+            {`"${['', 'One', 'Two', 'Three', 'Four', 'Five'][weddingData.ceremonies.length] || weddingData.ceremonies.length} cherished milestones celebrating love, tradition, and togetherness."`}
           </p>
         </motion.div>
 
