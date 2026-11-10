@@ -51,12 +51,12 @@ export const RSVPSection: React.FC = () => {
   const [guestName, setGuestName] = useState('');
   const [contact, setContact] = useState('');
   const [guestCount, setGuestCount] = useState('2');
-  const [selectedEvents, setSelectedEvents] = useState<string[]>([
-    'haldi',
-    'mehendi',
-    'wedding',
-    'vidai',
-  ]);
+  // Default to every ceremony this route actually shows, so a ceremony
+  // removed for a route (e.g. Haldi on /ashish) never lingers in the
+  // submitted RSVP message.
+  const [selectedEvents, setSelectedEvents] = useState<string[]>(
+    weddingData.ceremonies.map((c) => c.id),
+  );
   const [guestNote, setGuestNote] = useState('');
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
 

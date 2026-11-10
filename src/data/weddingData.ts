@@ -358,9 +358,13 @@ const ashishWeddingData: WeddingConfig = {
     ...realWeddingData.story,
     welcomeMessage: "Sw. Shrimati Chand Devi and Shri Lallu ji Modi, with the Modi Parivar, invite you to the Mangal Parinay of their son Ashish with Kritika.",
   },
-  ceremonies: realWeddingData.ceremonies.map((c) => {
-    if (c.id === "haldi" || c.id === "mehendi") {
-      return { ...c, dateStr: "2026-11-23", displayDate: "23 November 2026, 2:00 PM", time: "2:00 PM", timeGracefulLabel: "दोपहर 02:00 बजे", venueName: "Jaipur", venueAddress: "Modi Parivar, Jaipur" };
+  // Haldi is not shown on the /ashish route (Modi Parivar side), and the
+  // Mehendi card carries no directions link: Mehendi is at Modi Parivar,
+  // Jaipur, not at P.S. Baag, so the inherited P.S. Baag directions URL
+  // is cleared (Celebrations hides the button when it is empty).
+  ceremonies: realWeddingData.ceremonies.filter((c) => c.id !== "haldi").map((c) => {
+    if (c.id === "mehendi") {
+      return { ...c, dateStr: "2026-11-23", displayDate: "23 November 2026, 2:00 PM", time: "2:00 PM", timeGracefulLabel: "दोपहर 02:00 बजे", venueName: "Jaipur", venueAddress: "Modi Parivar, Jaipur", directionsUrl: "" };
     }
     if (c.id === "wedding") {
       return {

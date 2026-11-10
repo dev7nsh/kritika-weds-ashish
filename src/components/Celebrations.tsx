@@ -354,23 +354,27 @@ export const Celebrations: React.FC = () => {
                       {ceremony.description}
                     </p>
 
-                    {/* Directions Link Button */}
-                    <div style={{ marginTop: '6px' }}>
-                      <a
-                        href={ceremony.directionsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-secondary"
-                        style={{
-                          padding: '10px 18px',
-                          fontSize: '0.72rem',
-                          borderColor: 'rgba(196, 163, 106, 0.45)',
-                        }}
-                      >
-                        <Navigation size={13} />
-                        Directions to P.S. Baag Marriage Garden ↗
-                      </a>
-                    </div>
+                    {/* Directions Link Button — hidden when a ceremony has
+                        no directions URL (e.g. Mehendi on the /ashish route,
+                        which is at Modi Parivar, not P.S. Baag). */}
+                    {ceremony.directionsUrl && (
+                      <div style={{ marginTop: '6px' }}>
+                        <a
+                          href={ceremony.directionsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary"
+                          style={{
+                            padding: '10px 18px',
+                            fontSize: '0.72rem',
+                            borderColor: 'rgba(196, 163, 106, 0.45)',
+                          }}
+                        >
+                          <Navigation size={13} />
+                          Directions to P.S. Baag Marriage Garden ↗
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.article>
